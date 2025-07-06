@@ -24,6 +24,7 @@ jobs:
           
       - name: Fix background color in SVG
         run: |
+          chmod +w dist/github-contribution-grid-snake.svg
           sed -i 's/#ffffff/#161b22/g' dist/github-contribution-grid-snake.svg
           sed -i 's/#fff/#161b22/g' dist/github-contribution-grid-snake.svg
 
