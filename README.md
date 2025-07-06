@@ -9,5 +9,4 @@
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 
-![Snake animation]
-(https://github.com/jackwinkler2/jackwinkler2/blob/output/github-contribution-grid-snake.svg)
+![Snake animation](https://github.com/jackwinkler2/jackwinkler2/blob/output/github-contribution-grid-snake.svg)
