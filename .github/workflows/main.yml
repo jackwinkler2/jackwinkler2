@@ -23,8 +23,7 @@ jobs:
         uses: Platane/snk@v3.3.0
         with:
           github_user_name: jackwinkler2
-          outputs: dist/github-contribution-grid-snake.svg,dist/github-contribution-grid-snake-dark.svg?palette=https://raw.githubusercontent.com/jackwinkler2/jackwinkler2/main/dark-palette.json
-
+          outputs: dist/github-contribution-grid-snake.svg,dist/github-contribution-grid-snake-dark.svg?palette=github-dark
       - name: List generated SVG files
         run: ls -l dist
 
