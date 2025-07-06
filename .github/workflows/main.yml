@@ -24,8 +24,9 @@ jobs:
           
       - name: Replace background color in SVG
         run: |
-          sed 's/#ffffff/#161b22/g; s/#fff/#161b22/g' dist/github-contribution-grid-snake.svg > dist/fixed-snake.svg
-          mv dist/fixed-snake.svg dist/github-contribution-grid-snake.svg
+          mv dist/github-contribution-grid-snake.svg snake-temp.svg
+          sed 's/#ffffff/#161b22/g; s/#fff/#161b22/g' snake-temp.svg > snake-fixed.svg
+          mv snake-fixed.svg dist/github-contribution-grid-snake.svg
 
       - name: List files in dist
         run: ls -l dist
