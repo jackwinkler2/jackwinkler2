@@ -22,11 +22,10 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           outputs: dist/github-contribution-grid-snake.svg
           
-      - name: Fix background color in SVG
+      - name: Replace background color in SVG
         run: |
-          chmod +w dist/github-contribution-grid-snake.svg
-          sed -i 's/#ffffff/#161b22/g' dist/github-contribution-grid-snake.svg
-          sed -i 's/#fff/#161b22/g' dist/github-contribution-grid-snake.svg
+          sed 's/#ffffff/#161b22/g; s/#fff/#161b22/g' dist/github-contribution-grid-snake.svg > dist/fixed-snake.svg
+          mv dist/fixed-snake.svg dist/github-contribution-grid-snake.svg
 
       - name: List files in dist
         run: ls -l dist
