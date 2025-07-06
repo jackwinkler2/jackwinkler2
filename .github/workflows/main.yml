@@ -19,32 +19,27 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: generate github-contribution-grid-snake.svg with light and dark palettes
+      # Generate light theme SVG
+      - name: Generate light snake SVG
         uses: Platane/snk@v3.3.0
         with:
           github_user_name: jackwinkler2
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          outputs: dist/github-contribution-grid-snake.svg,dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+          outputs: dist/github-contribution-grid-snake.svg
 
+      # Generate dark theme SVG
+      - name: Generate dark snake SVG
+        uses: Platane/snk@v3.3.0
+        with:
+          github_user_name: jackwinkler2
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          outputs: dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+
+      # List files in dist directory
       - name: List files in dist directory
         run: ls -l dist || echo "dist folder or files missing"
 
-      - name: Show first 20 lines of dark SVG (if exists)
-        run: |
-          if [ -f dist/github-contribution-grid-snake-dark.svg ]; then
-            head -n 20 dist/github-contribution-grid-snake-dark.svg
-          else
-            echo "Dark SVG file not found."
-          fi
-
-      - name: Show first 20 lines of light SVG (if exists)
-        run: |
-          if [ -f dist/github-contribution-grid-snake.svg ]; then
-            head -n 20 dist/github-contribution-grid-snake.svg
-          else
-            echo "Light SVG file not found."
-          fi
-
+      # Push to output branch
       - name: Push generated files to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
